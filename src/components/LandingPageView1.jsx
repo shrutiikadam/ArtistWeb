@@ -26,7 +26,10 @@ const LandingPageView1 = () => {
       setActiveIndex((prevIndex) => prevIndex - 1);
     }
   };
-
+    const sectionVariants = {
+      hidden: { opacity: 0, y: 50 },
+      visible: { opacity: 1, y: 0, transition: { duration: 0.8 } },
+    };
 useEffect(() => {
   
     const fetchLandingPageData = async () => {
@@ -36,7 +39,7 @@ useEffect(() => {
         "artistPage": {
           "artistName": "Vishal Mishra",
           "stageTitles": "5-Star Performer | Chart-Topping Artist | Voice Artist",
-          "artistBio": " Vishal Mishra is a talented playback singer and composer in the Indian music industry, known for his soulful voice and memorable melodies. His work spans multiple Bollywood films, earning him critical acclaim and a loyal fan base.",
+          "artistBio": " Vishal Mishra is a talented playback singer and composer in the Indian music industry, known for his soulful voice and memorable melodies. His work spans multiple Bollywood films.",
           "artistPhoto": "https://c.saavncdn.com/artists/Vishal_Mishra_004_20230804115745_500x500.jpg",
           "gradientStart": "#000000",
           "gradientEnd": "#000000"
@@ -452,24 +455,39 @@ useEffect(() => {
           
 <div className="lg:col-span-7 px-4 pt-3">
   {/* About Section */}
-  <div className="relative bg-trans text-white p-6 rounded-lg">
-  <div
-    className="absolute inset-0 bg-cover bg-center transform -rotate-2"
-    style={{
-      backgroundImage: 'url("https://vishal-mishra.com/wp-content/uploads/2024/05/2.jpg")',
-      opacity: 0.4
-    }}
-  ></div>
-  <div className="relative z-10 bg-transparent bg-opacity-30 p-1 rounded-lg flex">
-    <div className="w-1/2 p-2 bg-trans rounded-lg text-center">
-      <div className="border-b-2 border-[#ccff00] pb-4 mb-4">
-        <h2 className="text-3xl font-bold text-white">About</h2>
-      </div>
-      <p className="text-md text-[#ccff00]">{artistPage.artistBio}</p>
-    </div>
-    <div className="w-1/2"></div>
-  </div>
-</div>
+  <motion.div
+      className="relative bg-trans text-white p-6 rounded-lg"
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true, amount: 0.1 }}
+      variants={sectionVariants}
+    >
+      <motion.div
+        className="absolute inset-0 bg-cover bg-center transform -rotate-2"
+        style={{
+          backgroundImage: 'url("https://vishal-mishra.com/wp-content/uploads/2024/05/2.jpg")',
+          opacity: 0.4,
+        }}
+        initial={{ scale: 0.9 }}
+        whileInView={{ scale: 1, transition: { duration: 1 } }}
+        viewport={{ once: true }}
+      ></motion.div>
+      <motion.div
+        className="relative z-10 bg-transparent bg-opacity-30 p-1 rounded-lg flex"
+        variants={sectionVariants}
+      >
+        <motion.div
+          className="w-1/2 p-2 bg-trans rounded-lg text-center"
+          whileHover={{ scale: 1.05 }}
+        >
+          <div className="border-b-2 border-[#ccff00] pb-4 mb-4">
+            <h2 className="text-3xl font-bold text-white">About</h2>
+          </div>
+          <p className="text-md text-[#ccff00]">{artistPage.artistBio}</p>
+        </motion.div>
+        <div className="w-1/2"></div>
+      </motion.div>
+    </motion.div>
 
 
   {/* Music Videos Section */}
@@ -488,9 +506,14 @@ useEffect(() => {
             src={video.imageURL}
             alt={video.title}
             className="w-10 h-10 object-cover rounded-lg ml-5"
+            
           />
           {/* Text and Edit Button */}
-          <div className="flex-1 flex justify-between items-center p-4 text-[#ccff00]" >
+          <div className="flex-1 flex justify-between items-center p-4 text-[#ccff00]" style={{
+        fontFamily: '"Edu AU VIC WA NT Hand", serif',
+        fontWeight: 400,
+        color: '#ccff00',
+      }}>
             <span className="text-md font-medium">{video.title}</span>
             <div className="text-sm text-gray-400">
               {video.duration} • {video.views} views
