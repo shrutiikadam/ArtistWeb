@@ -38,8 +38,8 @@ useEffect(() => {
           "stageTitles": "5-Star Performer | Chart-Topping Artist | Voice Artist",
           "artistBio": " Vishal Mishra is a talented playback singer and composer in the Indian music industry, known for his soulful voice and memorable melodies. His work spans multiple Bollywood films, earning him critical acclaim and a loyal fan base.",
           "artistPhoto": "https://c.saavncdn.com/artists/Vishal_Mishra_004_20230804115745_500x500.jpg",
-          "gradientStart": "#697565",
-          "gradientEnd": "#1E201E"
+          "gradientStart": "#000000",
+          "gradientEnd": "#000000"
         },
         "performances": [
           {
@@ -272,7 +272,7 @@ useEffect(() => {
             <a href="#merchandise" onClick={() => scrollToSection('merchandise')}>
               Merchandise
             </a>
-            <a href="#messages" onClick={() => scrollToSection('messages')}>
+            <a href="#support" onClick={() => scrollToSection('support')}>
               Messages
             </a>
             <a href="#support" onClick={() => scrollToSection('support')}>
@@ -282,12 +282,12 @@ useEffect(() => {
 
           {/* Mobile Menu */}
           {showMenu && (
-            <div className="absolute top-16 right-0 w-full bg-white bg-opacity-90 shadow-lg rounded-lg md:hidden">
+            <div className="absolute top-16 right-0 w-full bg-black bg-opacity-90 shadow-lg rounded-lg md:hidden">
               <ul className="flex flex-col items-center">
                 <li>
                   <a
                     href="#performances"
-                    className="block px-4 py-2 text-black hover:bg-gray-200"
+                    className="block px-4 py-2 text-[#ccff00] hover:bg-gray-200"
                     onClick={() => {
                       scrollToSection('performances');
                       setShowMenu(false);
@@ -299,7 +299,7 @@ useEffect(() => {
                 <li>
                   <a
                     href="#videos"
-                    className="block px-4 py-2 text-black hover:bg-gray-200"
+                    className="block px-4 py-2 text-[#ccff00] hover:bg-gray-200"
                     onClick={() => {
                       scrollToSection('videos');
                       setShowMenu(false);
@@ -311,7 +311,7 @@ useEffect(() => {
                 <li>
                   <a
                     href="#songsSale"
-                    className="block px-4 py-2 text-black hover:bg-gray-200"
+                    className="block px-4 py-2 text-[#ccff00] hover:bg-gray-200"
                     onClick={() => {
                       scrollToSection('songsSale');
                       setShowMenu(false);
@@ -323,7 +323,7 @@ useEffect(() => {
                 <li>
                   <a
                     href="#merchandise"
-                    className="block px-4 py-2 text-black hover:bg-gray-200"
+                    className="block px-4 py-2 text-[#ccff00] hover:bg-gray-200"
                     onClick={() => {
                       scrollToSection('merchandise');
                       setShowMenu(false);
@@ -334,10 +334,10 @@ useEffect(() => {
                 </li>
                 <li>
                   <a
-                    href="#messages"
-                    className="block px-4 py-2 text-black hover:bg-gray-200"
+                    href="#support"
+                    className="block px-4 py-2 text-[#ccff00] hover:bg-gray-200"
                     onClick={() => {
-                      scrollToSection('messages');
+                      scrollToSection('support');
                       setShowMenu(false);
                     }}
                   >
@@ -347,7 +347,7 @@ useEffect(() => {
                 <li>
                   <a
                     href="#support"
-                    className="block px-4 py-2 text-black hover:bg-gray-200"
+                    className="block px-4 py-2 text-[#ccff00] hover:bg-gray-200"
                     onClick={() => {
                       scrollToSection('support');
                       setShowMenu(false);
@@ -405,7 +405,7 @@ useEffect(() => {
   }}
 >
   <h1
-    className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold uppercase tracking-wide mb-2"
+    className="text-4xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold uppercase tracking-wide mb-2"
     style={{
       fontFamily: "Rubik Mono One",
       color: "#ccff00",
@@ -415,7 +415,7 @@ useEffect(() => {
     {artistPage.artistName}
   </h1>
 
-  <h2 className="text-sm sm:text-base md:text-lg lg:text-xl text-white mb-4 w-full sm:w-auto">
+  <h2 className="text-md sm:text-base md:text-lg lg:text-xl text-white mb-4 w-full sm:w-auto">
     {artistPage.stageTitles}
   </h2>
 </div>
@@ -460,7 +460,7 @@ useEffect(() => {
       opacity: 0.4
     }}
   ></div>
-  <div className="relative z-10 bg-transparent bg-opacity-50 p-1 rounded-lg flex">
+  <div className="relative z-10 bg-transparent bg-opacity-30 p-1 rounded-lg flex">
     <div className="w-1/2 p-2 bg-trans rounded-lg text-center">
       <div className="border-b-2 border-[#ccff00] pb-4 mb-4">
         <h2 className="text-3xl font-bold text-white">About</h2>
@@ -723,9 +723,11 @@ useEffect(() => {
               className="object-cover w-full h-full rounded-t-lg"
             />
             {/* Offer Badge */}
-            <div className="absolute top-2 left-2 p-2 bg-red-500 text-white font-bold rounded-full transform rotate-12">
-              {merc.discount}% OFF
-            </div>
+            <div className="absolute top-2 left-2 p-2 bg-red-500 text-white font-bold rounded-full transform rotate-12 flex items-center justify-center">
+  <i className="fas fa-tag mr-1"></i>
+  {merc.discount}% OFF
+</div>
+
           </div>
           {/* Content Section */}
           <div className="p-4 flex-grow flex flex-col justify-between">
@@ -782,8 +784,8 @@ useEffect(() => {
         }}
       >
         {/* Paper Pin to the Corner */}
-        <div className="absolute top-0 right-0 p-2 bg-red-500 rounded-full shadow-md transform rotate-45">
-                <i className="fas fa-thumbtack text-white"></i>
+        <div className="absolute top-0 right-0 bg-trans rounded-full transform rotate-45">
+                <i className="fas fa-thumbtack text-3xl text-red-600"></i>
               </div>
               
               {/* Content inside the Paper */}
@@ -837,7 +839,7 @@ useEffect(() => {
     )}
   </Card>
 
-  <div id="support1" className="flex justify-center items-center p-8 flex-1">
+  <div id="support1" className="flex justify-center items-center p-4 flex-1">
   {supportPage && (
     <div className="p-4 max-w-2xl mx-auto bg-white bg-opacity-30 backdrop-blur-lg rounded-lg shadow-lg mb-8 transform transition-transform border border-black">
       <h2 className="text-3xl font-bold text-center text-black mb-6">

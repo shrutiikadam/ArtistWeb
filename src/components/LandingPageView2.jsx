@@ -270,7 +270,7 @@ const loadMoreItems = () => {
             <a href="#merchandise" onClick={() => scrollToSection('merchandise')}>
               Merchandise
             </a>
-            <a href="#messages" onClick={() => scrollToSection('messages')}>
+            <a href="#support" onClick={() => scrollToSection('support')}>
               Messages
             </a>
             <a href="#support" onClick={() => scrollToSection('support')}>
@@ -280,12 +280,12 @@ const loadMoreItems = () => {
 
           {/* Mobile Menu */}
           {showMenu && (
-            <div className="absolute top-16 right-0 w-full bg-white bg-opacity-90 shadow-lg rounded-lg md:hidden">
+            <div className="absolute top-16 right-0 w-full bg-black shadow-lg rounded-lg md:hidden">
               <ul className="flex flex-col items-center">
                 <li>
                   <a
                     href="#performances"
-                    className="block px-4 py-2 text-black hover:bg-gray-200"
+                    className="block px-4 py-2 text-white hover:bg-gray-200"
                     onClick={() => {
                       scrollToSection('performances');
                       setShowMenu(false);
@@ -297,7 +297,7 @@ const loadMoreItems = () => {
                 <li>
                   <a
                     href="#videos"
-                    className="block px-4 py-2 text-black hover:bg-gray-200"
+                    className="block px-4 py-2 text-white hover:bg-gray-200"
                     onClick={() => {
                       scrollToSection('videos');
                       setShowMenu(false);
@@ -309,7 +309,7 @@ const loadMoreItems = () => {
                 <li>
                   <a
                     href="#songsSale"
-                    className="block px-4 py-2 text-black hover:bg-gray-200"
+                    className="block px-4 py-2 text-white hover:bg-gray-200"
                     onClick={() => {
                       scrollToSection('songsSale');
                       setShowMenu(false);
@@ -321,7 +321,7 @@ const loadMoreItems = () => {
                 <li>
                   <a
                     href="#merchandise"
-                    className="block px-4 py-2 text-black hover:bg-gray-200"
+                    className="block px-4 py-2 text-white hover:bg-gray-200"
                     onClick={() => {
                       scrollToSection('merchandise');
                       setShowMenu(false);
@@ -332,10 +332,10 @@ const loadMoreItems = () => {
                 </li>
                 <li>
                   <a
-                    href="#messages"
-                    className="block px-4 py-2 text-black hover:bg-gray-200"
+                    href="#support"
+                    className="block px-4 py-2 text-white hover:bg-gray-200"
                     onClick={() => {
-                      scrollToSection('messages');
+                      scrollToSection('support');
                       setShowMenu(false);
                     }}
                   >
@@ -345,7 +345,7 @@ const loadMoreItems = () => {
                 <li>
                   <a
                     href="#support"
-                    className="block px-4 py-2 text-black hover:bg-gray-200"
+                    className="block px-4 py-2 text-white hover:bg-gray-200"
                     onClick={() => {
                       scrollToSection('support');
                       setShowMenu(false);
