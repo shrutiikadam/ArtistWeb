@@ -9,15 +9,6 @@ Experience the project live:
 - [Landing Page 1](https://artist-web-topaz.vercel.app/landing1)
 - [Landing Page 2](https://artist-web-topaz.vercel.app/landing2)
 
-## Screenshots
-
-Here are some screenshots of the live pages:
-
-- **Landing Page 1**:
-  ![Landing Page 1](assets/landing1.png)
-
-- **Landing Page 2**:
-  ![Landing Page 2](assets/landing2.png)
 
 ## Technologies Used
 

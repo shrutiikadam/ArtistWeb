@@ -36,7 +36,7 @@ useEffect(() => {
         "artistPage": {
           "artistName": "Vishal Mishra",
           "stageTitles": "5-Star Performer | Chart-Topping Artist | Voice Artist",
-          "artistBio": " Vishal Mishra is a name commonly associated with individuals in various fields, and it is important to clarify which Vishal Mishra you are referring to.",
+          "artistBio": " Vishal Mishra is a talented playback singer and composer in the Indian music industry, known for his soulful voice and memorable melodies. His work spans multiple Bollywood films, earning him critical acclaim and a loyal fan base.",
           "artistPhoto": "https://c.saavncdn.com/artists/Vishal_Mishra_004_20230804115745_500x500.jpg",
           "gradientStart": "#697565",
           "gradientEnd": "#1E201E"
@@ -119,7 +119,7 @@ useEffect(() => {
         "musicVideos": [
           {
             "videoId": "vid1",
-            "title": "Pehle bhi main tumse mila hoon",
+            "title": "Melodic Memories",
             "description": "A visual treat of my recent performance.",
             "platform": "YouTube",
             "redirectURL": "https://www.youtube.com/watch?v=CfWtfgwL8Z8",
@@ -129,7 +129,7 @@ useEffect(() => {
           },
           {
             "videoId": "vid2",
-            "title": "Kaise Hua ",
+            "title": "Melodic Memories",
             "description": "A visual treat of my recent performance.",
             "platform": "YouTube",
             "redirectURL": "https://www.youtube.com/watch?v=CfWtfgwL8Z8",
@@ -783,95 +783,97 @@ useEffect(() => {
       >
         {/* Paper Pin to the Corner */}
         <div className="absolute top-0 right-0 p-2 bg-red-500 rounded-full shadow-md transform rotate-45">
-          <svg
-            className="w-6 h-6 text-white"
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="2"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          >
-            <path d="M12 6v12m6-6H6"></path>
-          </svg>
-        </div>
-        {/* Content inside the Paper */}
-        <h2 className="text-2xl lg:text-3xl font-bold text-center text-black mb-4 transition-transform transform hover:scale-105">
-          Fan Messages
-        </h2>
-        <Card className="bg-transparent">
-          <CardHeader className="bg-transparent text-black pt-3 rounded-t-lg shadow-xl">
-            <CardTitle className="text-lg lg:text-xl font-semibold mb-2 flex items-center justify-between">
-              <span>Message Me</span>
-              <Send className="w-6 h-6 text-current" />
-            </CardTitle>
-            <CardDescription className="text-sm opacity-90">
-              <p className="font-medium text-gray-800 mb-2">
-                {fanMessages.title}
-              </p>
-              <p className="text-gray-600 leading-relaxed">
-                {fanMessages.description}
-              </p>
-              <br />
-              <span className="font-semibold text-gray-700">
-                Promised Reply Time:
-              </span>
-              <span className="text-red-600 font-bold">
-                {fanMessages.promisedReplyTime} hours
-              </span>
-            </CardDescription>
-          </CardHeader>
-          <CardContent className="p-4">
-            <Button
-              className="flex items-center justify-center gap-3 w-full py-3 px-6 text-white bg-black rounded-full shadow-xl transform transition-transform hover:scale-105"
-              style={{
-                fontFamily: '"Edu AU VIC WA NT Hand", serif',
-                fontWeight: 400,
-                color: '#ccff00',
-              }}
-              onClick={() => alert("Message Sent!")}
-            >
-              Send Message
-            </Button>
-          </CardContent>
-        </Card>
+                <i className="fas fa-thumbtack text-white"></i>
+              </div>
+              
+              {/* Content inside the Paper */}
+              <h2 className="text-2xl lg:text-3xl font-bold text-center text-black mb-4 transition-transform transform hover:scale-105">
+                Fan Messages
+                <i className="fas fa-comments text-green-500 mr-2"></i>
+              </h2>
+              
+              <Card className="bg-transparent">
+                <CardHeader className="bg-transparent text-black pt-3 rounded-t-lg shadow-xl">
+                  <CardTitle className="text-lg lg:text-xl font-semibold mb-2 flex items-center justify-between">
+                    <span>
+                      <i className="fas fa-envelope text-black mr-2"></i>
+                      Message Me
+                    </span>
+                    <Send className="w-6 h-6 text-current" />
+                  </CardTitle>
+                  <CardDescription className="text-sm opacity-90">
+                    <p className="font-medium text-black mb-2">
+                      {fanMessages.title}
+                    </p>
+                    <p className="text-gray-800 leading-relaxed">
+                      {fanMessages.description}
+                    </p>
+                    <br />
+                    <span className="font-semibold text-gray-800">
+                      Promised Reply Time:
+                    </span>
+                    <span className="text-red-700 font-bold">
+                      {fanMessages.promisedReplyTime} hours
+                    </span>
+                  </CardDescription>
+                </CardHeader>
+                
+                <CardContent className="p-4">
+                  <Button
+                    className="flex items-center justify-center gap-3 w-full py-3 px-6 text-white bg-black rounded-full shadow-xl transform transition-transform hover:scale-105 border border-red"
+                    style={{
+                      fontFamily: '"Edu AU VIC WA NT Hand", serif',
+                      fontWeight: 400,
+                      color: 'white',
+                    }}
+                    onClick={() => alert('Message Sent!')}
+                  >
+                    <i className="fas fa-paper-plane"></i>
+                    Send Message
+                  </Button>
+                </CardContent>
+              </Card>
       </div>
     )}
   </Card>
 
   <div id="support1" className="flex justify-center items-center p-8 flex-1">
-    {supportPage && (
-      <div className="p-4 max-w-2xl mx-auto bg-white bg-opacity-30 backdrop-blur-lg rounded-lg shadow-lg mb-8 transform transition-transform border border-black">
-        <h2 className="text-3xl font-bold text-center text-black mb-6">
-          Support Me
-        </h2>
+  {supportPage && (
+    <div className="p-4 max-w-2xl mx-auto bg-white bg-opacity-30 backdrop-blur-lg rounded-lg shadow-lg mb-8 transform transition-transform border border-black">
+      <h2 className="text-3xl font-bold text-center text-black mb-6">
+        
+        Support Me
+        
+      </h2>
 
-        <div className="bg-white rounded-lg shadow-lg mb-4 p-4 hover:shadow-2xl transition-shadow duration-300 border border-black">
-          <div className="bg-transparent text-black pt-3 rounded-t-lg">
-            <h3 className="text-2xl font-semibold mb-2">
-              {supportPage.title}
-            </h3>
-            <p className="text-gray-700 opacity-80 mt-2">
-              Show your support and help me achieve great things!
-            </p>
-          </div>
-          <div className="mt-4">
-            <button
-              className="w-full sm:w-1/2 py-3 bg-black text-white font-semibold rounded-md shadow-md transition duration-300 ease-in-out transform hover:scale-105"
-              style={{
-                fontFamily: '"Edu AU VIC WA NT Hand", serif',
-                fontWeight: 400,
-                color: '#ccff00',
-              }}
-            >
-              Support Now
-            </button>
-          </div>
+      <div className="bg-white rounded-lg shadow-lg mb-4 p-4 hover:shadow-2xl transition-shadow duration-300 border border-black">
+        <div className="bg-transparent text-black pt-3 rounded-t-lg">
+          <h3 className="text-2xl font-semibold mb-2 flex items-center">
+            <i className="fas fa-hand-holding-heart text-red-500 mr-2"></i>
+            {supportPage.title}
+          </h3>
+          <p className="text-gray-700 opacity-80 mt-2">
+            Show your support and help me achieve great things!
+          </p>
+        </div>
+        <div className="mt-4">
+          <button
+            className="w-full py-3 bg-black text-white font-semibold rounded-md shadow-md transition duration-300 ease-in-out transform hover:scale-105 flex items-center justify-center gap-2"
+            style={{
+              fontFamily: '"Edu AU VIC WA NT Hand", serif',
+              fontWeight: 400,
+              color: '#ccff00',
+            }}
+          >
+            <i className="fas fa-donate"></i>
+            Support Now
+          </button>
         </div>
       </div>
-    )}
-  </div>
+    </div>
+  )}
+</div>
+
 </div>
 
 <style jsx>

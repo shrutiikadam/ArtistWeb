@@ -410,44 +410,54 @@ const loadMoreItems = () => {
 
 
         {/* About Section */}
-        
+
+
         <Card 
-  className="shadow-lg rounded-lg" 
-  style={{
-    backgroundImage: `url('https://png.pngtree.com/png-clipart/20220804/ourmid/pngtree-audiences-in-club-musical-png-image_6098435.png')`,
-    backgroundSize: 'cover',
-    backgroundPosition: 'center',
-    backgroundRepeat: 'no-repeat',
-    minHeight: '360px'
-  }}
->
+      className="shadow-lg rounded-lg" 
+      style={{
+        backgroundImage: `url('https://png.pngtree.com/png-clipart/20220804/ourmid/pngtree-audiences-in-club-musical-png-image_6098435.png')`,
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        backgroundRepeat: 'no-repeat',
+        minHeight: '360px'
+      }}
+    >
+      <div className="bg-black bg-opacity-90 p-6 rounded-lg h-400">
+        <div className="flex flex-col md:flex-row">
+          {/* Left Column: Image with scroll-triggered Framer Motion */}
+          <div className="md:w-1/3 flex justify-center items-center">
+            <motion.img 
+              src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjBYxKMnj7sfhsp_KnR7e1sTHcVosExrUTp6I0sS7pueH-_p4NHf_WD3gCKQgX_Ts__9PjTzv7EjAjdBcgOE36XqOrsLyvdxF9n-6PZeiO8TSGMcTOiXl6UK4C6YG4tNuPT_EpdMKKLxb_t-3OWPkJUxtI3QUuLcmR80z3ppee3KrAokZndR2bc03Pd76AV/s1213/vishal.jpg" 
+              alt="Artist Image" 
+              className="w-56 h-56 md:w-80 md:h-80 object-cover rounded-lg"
+              initial={{ opacity: 0, scale: 0.8 }} // Starting state
+              whileInView={{ opacity: 1, scale: 1 }} // Triggered when the image comes into view
+              viewport={{ once: true, amount: 0.5 }} // Triggers animation when 50% of the image is visible
+              transition={{ duration: 1 }} // Duration of animation
+            />
+          </div>
 
-  <div className="bg-black bg-opacity-90 p-6 rounded-lg h-400">
-    <div className="flex flex-col md:flex-row">
-      {/* Left Column: Image */}
-      <div className="md:w-1/3 flex justify-center items-center">
-        <img 
-          src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjBYxKMnj7sfhsp_KnR7e1sTHcVosExrUTp6I0sS7pueH-_p4NHf_WD3gCKQgX_Ts__9PjTzv7EjAjdBcgOE36XqOrsLyvdxF9n-6PZeiO8TSGMcTOiXl6UK4C6YG4tNuPT_EpdMKKLxb_t-3OWPkJUxtI3QUuLcmR80z3ppee3KrAokZndR2bc03Pd76AV/s1213/vishal.jpg" 
-          alt="Artist Image" 
-          className="w-56 h-56 md:w-80 md:h-80 object-cover rounded-lg"
-        />
+          {/* Right Column: Content */}
+          <div className="w-full md:w-2/3 md:px-6">
+            <motion.div
+              initial={{ opacity: 0, x: -50 }} // Start from left and invisible
+              whileInView={{ opacity: 1, x: 0 }} // Fade in and slide to the center
+              viewport={{ once: true, amount: 0.5 }} // Trigger animation when 50% of the content is visible
+              transition={{ duration: 1 }} // Duration of animation
+            >
+              <CardHeader>
+                <CardTitle className="text-white text-2xl sm:text-3xl font-bold text-center md:text-left">
+                  About
+                </CardTitle>
+                <CardDescription className="text-white text-base sm:text-lg mt-4 text-center md:text-left">
+                  {artistPage.artistBio}
+                </CardDescription>
+              </CardHeader>
+            </motion.div>
+          </div>
+        </div>
       </div>
-
-      {/* Right Column: Content */}
-      <div className="w-full md:w-2/3 px-4 md:px-6 py-8">
-  <CardHeader>
-    <CardTitle className="text-white text-2xl sm:text-3xl font-bold text-center md:text-left">
-      About
-    </CardTitle>
-    <CardDescription className="text-white text-base sm:text-lg mt-4 text-center md:text-left">
-      {artistPage.artistBio}
-    </CardDescription>
-  </CardHeader>
-</div>
-
-    </div>
-  </div>
-</Card>
+    </Card>
 
 
 
@@ -541,7 +551,7 @@ const loadMoreItems = () => {
     <div className="relative justify-center flex-grow w-full lg:w-1/2 h-[350px] md:h-[300px] lg:h-full overflow-hidden">
       {/* Previous Button */}
       <button
-        className="absolute left-2 md:left-4 top-1/2 transform -translate-y-1/2 bg-gray-800 text-white p-2 md:p-3 rounded-full focus:outline-none z-30"
+        className="absolute left-2 md:left-4 top-1/2 transform -translate-y-1/2 bg-gray-800 text-white p-2 md:p-3 rounded-full focus:outline-none z-40"
         onClick={handlePrev}
       >
         <svg
@@ -857,111 +867,122 @@ const loadMoreItems = () => {
 
   {/* Messages Section */}
   <Card className="bg-trans bg-opacity-30 backdrop-blur-lg rounded-lg flex-1 pt-10">
-    {fanMessages && (
-      <div
-        className="bg-[#f4e1a1] shadow-lg rounded-lg transform scale-95 w-full max-w-md lg:max-w-sm mx-auto p-4 relative shake-tilt border border-black"
-        style={{
-          backgroundImage:
-            'url("https://img.freepik.com/premium-photo/abstract-crumpled-paper-texture-background-old-crumpled-brown-paper-background-texture_631222-254.jpg")',
-          backgroundSize: 'cover',
-          boxShadow: '0 8px 16px rgba(0, 0, 0, 0.2)',
-        }}
-      >
-        {/* Paper Pin to the Corner */}
-        <div className="absolute top-0 right-0 p-2 bg-red-500 rounded-full shadow-md transform rotate-45">
-          <svg
-            className="w-6 h-6 text-white"
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="2"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          >
-            <path d="M12 6v12m6-6H6"></path>
-          </svg>
-        </div>
-        {/* Content inside the Paper */}
-        <h2 className="text-2xl lg:text-3xl font-bold text-center text-black mb-4 transition-transform transform hover:scale-105">
-          Fan Messages
-        </h2>
-        <Card className="bg-transparent">
-          <CardHeader className="bg-transparent text-black pt-3 rounded-t-lg shadow-xl">
-            <CardTitle className="text-lg lg:text-xl font-semibold mb-2 flex items-center justify-between">
-              <span>Message Me</span>
-              <Send className="w-6 h-6 text-current" />
-            </CardTitle>
-            <CardDescription className="text-sm opacity-90">
-              <p className="font-medium text-gray-800 mb-2">
-                {fanMessages.title}
-              </p>
-              <p className="text-gray-600 leading-relaxed">
-                {fanMessages.description}
-              </p>
-              <br />
-              <span className="font-semibold text-gray-700">
-                Promised Reply Time:
-              </span>
-              <span className="text-red-600 font-bold">
-                {fanMessages.promisedReplyTime} hours
-              </span>
-            </CardDescription>
-          </CardHeader>
-          <CardContent className="p-4">
-            <Button
-              className="flex items-center justify-center gap-3 w-full py-3 px-6 text-white bg-black rounded-full shadow-xl transform transition-transform hover:scale-105"
-              style={{
-                fontFamily: '"Edu AU VIC WA NT Hand", serif',
-                fontWeight: 400,
-                color: 'white',
-              }}
-              onClick={() => alert('Message Sent!')}
-            >
-              Send Message
-            </Button>
-          </CardContent>
-        </Card>
+  {fanMessages && (
+    <div
+      className="bg-[#f4e1a1] shadow-lg rounded-lg transform scale-95 w-full max-w-md lg:max-w-sm mx-auto p-4 relative shake-tilt border border-red"
+      style={{
+        backgroundImage:
+          'url("https://i.pinimg.com/736x/de/84/0d/de840dbdd6b304b0e5b0f5b11471479e.jpg")',
+        backgroundSize: 'cover',
+        boxShadow: '0 8px 16px rgba(0, 0, 0, 0.2)',
+      }}
+    >
+      <div className="absolute inset-0 bg-black bg-opacity-60 -z-10"></div> 
+      {/* Pin Icon */}
+      <div className="absolute top-0 right-0 p-2 bg-red-500 rounded-full shadow-md transform rotate-45">
+        <i className="fas fa-thumbtack text-white"></i>
       </div>
-    )}
-  </Card>
+      
+      {/* Content inside the Paper */}
+      <h2 className="text-2xl lg:text-3xl font-bold text-center text-white mb-4 transition-transform transform hover:scale-105">
+        <i className="fas fa-comments text-white mr-2"></i>
+        Fan Messages
+      </h2>
+      
+      <Card className="bg-transparent">
+        <CardHeader className="bg-transparent text-white pt-3 rounded-t-lg shadow-xl">
+          <CardTitle className="text-lg lg:text-xl font-semibold mb-2 flex items-center justify-between">
+            <span>
+              <i className="fas fa-envelope text-white mr-2"></i>
+              Message Me
+            </span>
+            <Send className="w-6 h-6 text-current" />
+          </CardTitle>
+          <CardDescription className="text-sm opacity-90">
+            <p className="font-medium text-gray-300 mb-2">
+              {fanMessages.title}
+            </p>
+            <p className="text-gray-200 leading-relaxed">
+              {fanMessages.description}
+            </p>
+            <br />
+            <span className="font-semibold text-gray-200">
+              Promised Reply Time:
+            </span>
+            <span className="text-white font-bold">
+              {fanMessages.promisedReplyTime} hours
+            </span>
+          </CardDescription>
+        </CardHeader>
+        
+        <CardContent className="p-4">
+          <Button
+            className="flex items-center justify-center gap-3 w-full py-3 px-6 text-white bg-black rounded-full shadow-xl transform transition-transform hover:scale-105 border border-red"
+            style={{
+              fontFamily: '"Edu AU VIC WA NT Hand", serif',
+              fontWeight: 400,
+              color: 'white',
+            }}
+            onClick={() => alert('Message Sent!')}
+          >
+            <i className="fas fa-paper-plane"></i>
+            Send Message
+          </Button>
+        </CardContent>
+      </Card>
+    </div>
+  )}
+</Card>
 
   {/* Support Section */}
   <div id="support1" className="flex justify-center items-center p-4 flex-1">
-    {supportPage && (
-      <div className="w-full max-w-md lg:max-w-md mx-auto p-4 bg-white bg-opacity-30 backdrop-blur-lg rounded-lg shadow-lg mb-8 transform transition-transform border border-black">
-        <h2 className="text-3xl font-bold text-center text-black mb-6">
-          Support My Journey
-        </h2>
-        <div className="bg-white rounded-lg shadow-lg mb-4 p-6 hover:shadow-2xl transition-shadow duration-300 border border-black">
-          <div className="text-black pt-3">
-            <h3 className="text-2xl font-semibold mb-2">
-              {supportPage.title}
-            </h3>
-            <p className="text-gray-700 opacity-80 mt-2">
-              Your support fuels my passion and helps me achieve incredible milestones. Together, we can create something extraordinary!
-            </p>
-          </div>
-          <div className="mt-6 flex justify-center">
-            <button
-              className="w-full sm:w-auto px-8 py-3 bg-black text-white font-semibold rounded-md shadow-md transition duration-300 ease-in-out transform hover:scale-105"
-              style={{
-                fontFamily: '"Edu AU VIC WA NT Hand", serif',
-                fontWeight: 400,
-              }}
-            >
-              Support Now
-            </button>
-          </div>
-        </div>
-        <div className="text-center mt-6">
-          <p className="text-sm text-gray-400">
-            Thank you for being a part of this journey. Your support means the world to me!
+  {supportPage && (
+    <div className="w-full max-w-md lg:max-w-md mx-auto p-4 bg-[#C80036] bg-opacity-20 backdrop-blur-lg rounded-lg shadow-lg mb-8 transform transition-transform border border-white">
+      
+      {/* Support Header */}
+      <h2 className="text-3xl font-bold text-center text-white mb-6 flex items-center justify-center gap-2">
+        <i className="fas fa-hands-helping text-white text-4xl"></i>
+        Support My Journey
+      </h2>
+      
+      {/* Support Card */}
+      <div className="bg-white rounded-lg shadow-lg mb-4 p-6 hover:shadow-2xl transition-shadow duration-300 border border-black">
+        <div className="text-black pt-3">
+          <h3 className="text-2xl font-semibold mb-2 flex items-center gap-2">
+            <i className="fas fa-route text-black"></i>
+            {supportPage.title}
+          </h3>
+          <p className="text-gray-700 opacity-80 mt-2">
+            Your support fuels my passion and helps me achieve incredible milestones. Together, we can create something extraordinary!
           </p>
         </div>
+        
+        {/* Support Button */}
+        <div className="mt-6 flex justify-center">
+          <button
+            className="w-full sm:w-auto px-8 py-3 bg-black text-white font-semibold rounded-md shadow-md transition duration-300 ease-in-out transform hover:scale-105 flex items-center justify-center gap-2"
+            style={{
+              fontFamily: '"Edu AU VIC WA NT Hand", serif',
+              fontWeight: 400,
+            }}
+          >
+            <i className="fas fa-heart"></i>
+            Support Now
+          </button>
+        </div>
       </div>
-    )}
-  </div>
+      
+      {/* Thank You Message */}
+      <div className="text-center mt-6">
+        <p className="text-sm text-gray-400 flex items-center justify-center gap-2">
+          <i className="fas fa-star text-yellow-400"></i>
+          Thank you for being a part of this journey. Your support means the world to me!
+        </p>
+      </div>
+    </div>
+  )}
+</div>
+
 </div>
 
 <style jsx>
